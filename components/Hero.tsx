@@ -59,7 +59,7 @@ function HeroCard({ item, index, smoothMouseX, smoothIsWithin, isActive, isDimme
 
   return (
     <motion.div 
-      className={`hero-card relative w-44 md:w-52 lg:w-60 flex-shrink-0 flex flex-col gap-4 cursor-default transition-opacity duration-500 ${isDimmed ? 'opacity-40' : 'opacity-100'}`}
+      className={`hero-card relative w-20 sx:w-28 md:w-52 lg:w-60 flex-shrink-0 flex flex-col gap-4 cursor-default transition-opacity duration-500 ${isDimmed ? 'opacity-40' : 'opacity-100'}`}
       style={{
         transform: staticTranslate,
         zIndex: index === 2 ? 20 : 10,

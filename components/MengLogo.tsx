@@ -9,12 +9,19 @@ interface MengLogoProps {
   className?: string;
 }
 
+const ArchitecturalM = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="square" strokeLinejoin="inherit">
+    <path d="M4 18V6l8 7 8-7v12" />
+    <path d="M8 18V9l4 3.5 4-3.5v9" strokeWidth="1" opacity="0.3" />
+  </svg>
+);
+
 export default function MengLogo({ variant = 'primary', className = '' }: MengLogoProps) {
   if (variant === 'icon') {
      return (
         <Link href="/" className={`inline-flex items-center justify-center ${className}`}>
-           <div className="relative w-16 h-16 rounded-full bg-[#020203] border border-gold/40 shadow-[0_0_20px_rgba(0,0,0,0.9)] flex items-center justify-center overflow-hidden">
-              <span className="text-xl font-bold text-white tracking-widest font-space">M</span>
+           <div className="relative w-14 h-14 bg-[#020203] border border-gold/30 shadow-[0_0_15px_rgba(0,0,0,0.8)] flex items-center justify-center overflow-hidden">
+              <ArchitecturalM className="w-8 h-8 text-white" />
            </div>
         </Link>
      );
@@ -23,11 +30,11 @@ export default function MengLogo({ variant = 'primary', className = '' }: MengLo
   if (variant === 'nav') {
      return (
         <Link href="/" className={`inline-flex items-center gap-4 text-white no-underline group ${className}`}>
-            <div className="relative w-10 h-10 rounded-full bg-[#020203] border border-gold/40 shadow-[0_0_10px_rgba(0,0,0,0.9)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-               <span className="text-[12px] font-bold text-white tracking-wider font-space">M</span>
+            <div className="relative w-9 h-9 bg-[#020203] border border-gold/30 shadow-[0_0_10px_rgba(0,0,0,0.8)] flex items-center justify-center transition-all duration-300 group-hover:border-gold/60">
+               <ArchitecturalM className="w-5 h-5 text-white" />
            </div>
            <div className="flex flex-col justify-center">
-              <span className="text-[16px] font-oswald font-bold tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline-block text-white transition-opacity group-hover:opacity-80">
+              <span className="text-[15px] font-oswald font-bold tracking-[0.25em] uppercase whitespace-nowrap hidden sm:inline-block text-white transition-opacity group-hover:opacity-80">
                   MENG MEDIA
               </span>
            </div>
@@ -35,35 +42,44 @@ export default function MengLogo({ variant = 'primary', className = '' }: MengLo
      );
   }
 
-  // Primary variant (Growth Hub Section Badge) - Sharp, Integrated Design
+  // Primary variant (Growth Hub Section Badge) - Architectural Square Hub
   return (
      <div className={`flex flex-col items-center justify-center ${className}`}>
-          <div className="relative w-[180px] h-[180px] flex items-center justify-center group pointer-events-none">
+          <div className="relative w-[180px] h-[180px] md:w-[220px] md:h-[220px] flex items-center justify-center group">
             
-            {/* Minimalist Orbit Line - Low Opacity */}
+            {/* Rectilinear Signal Pulse */}
             <motion.div 
-               animate={{ rotate: 360 }}
-               transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-               className="absolute inset-[-10px] border border-white/[0.03] rounded-full pointer-events-none"
-            >
-               {/* Tiny Orbiting Dot */}
-               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-gold/40 rounded-full blur-[1px]" />
-            </motion.div>
+               animate={{ 
+                  scale: [1, 1.15],
+                  opacity: [0.2, 0] 
+               }}
+               transition={{ 
+                  duration: 4, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+               }}
+               className="absolute inset-0 border border-gold/30 pointer-events-none"
+            />
 
-            {/* Sharp Core Circle */}
-            <div className="relative w-full h-full rounded-full bg-[#020203] border-[1.5px] border-gold/80 shadow-[0_0_40px_rgba(0,0,0,0.85)] flex flex-col items-center justify-center pointer-events-auto transition-all duration-700">
-               {/* Inner depth stroke */}
-               <div className="absolute inset-[1px] border border-gold/10 rounded-full pointer-events-none" />
+            {/* Structured Core Hub - Squircle/Square */}
+            <div className="relative w-full h-full bg-[#020203] border-[1.5px] border-gold/60 shadow-[0_20px_50px_rgba(0,0,0,0.9)] flex flex-col items-center justify-center transition-all duration-500 overflow-visible pointer-events-auto group-hover:border-gold/80">
                
-               {/* Monogram 'M' - Space Grotesk Bold */}
-               <span className="text-[48px] font-bold text-white tracking-[0.02em] font-space leading-none select-none mb-1">
-                  M
-               </span>
+               {/* Architectural Monogram with hover lift */}
+               <motion.div 
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
+                  className="mb-2 cursor-default"
+               >
+                  <ArchitecturalM className="w-16 h-16 md:w-20 md:h-20 text-white" />
+               </motion.div>
                
-               {/* Label - Space Grotesk SemiBold Small-Caps */}
-               <span className="text-[10px] font-semibold tracking-[0.24em] uppercase text-gold/90 font-space">
-                  GROWTH HUB
-               </span>
+               {/* Label - Space Grotesk Bold */}
+               <div className="flex flex-col items-center gap-1">
+                  <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-gold/80 font-space select-none">
+                     GROWTH HUB
+                  </span>
+                  <div className="w-8 h-[1px] bg-gold/30" />
+               </div>
             </div>
           </div>
      </div>

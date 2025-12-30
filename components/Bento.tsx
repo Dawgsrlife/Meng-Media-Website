@@ -42,9 +42,13 @@ export default function EasolBento() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 blur-[120px] rounded-full pointer-events-none opacity-50" />
       
       <div className="content max-w-7xl mx-auto px-8 relative z-10">
-        <div className="copy text-center mb-20">
-          <h2 className="bodyfont text-4xl md:text-6xl font-serif italic text-white mb-6">Your All-in-One Platform</h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-light">The best in class platform for your experience business end to end...</p>
+        <div className="copy text-center mb-20 relative z-10">
+          <h2 className="text-5xl md:text-8xl font-serif italic text-white mb-6 drop-shadow-2xl">
+            Your <span className="text-gold-gradient not-italic font-oswald font-bold tracking-tighter uppercase inline-block px-4">All-in-One Platform</span>
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto font-serif italic leading-relaxed tracking-wide">
+            The best in class platform for your experience business end to end.
+          </p>
         </div>
 
         <div className="section--bento-main grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -54,7 +58,7 @@ export default function EasolBento() {
               className={`section--bentocard js-bento-card relative group ${i === activeTab ? 'scale-[1.02]' : ''} transition-all duration-500`}
               onClick={() => setActiveTab(i)}
             >
-              <div className={`section--bentocard-content p-8 md:p-12 h-full bg-dark-card rounded-2xl border transition-all cursor-pointer flex flex-col ${i === activeTab ? 'border-gold/60 shadow-[0_0_30px_rgba(212,175,55,0.1)]' : 'border-white/10 hover:border-gold/30'}`}>
+              <div className={`section--bentocard-content p-6 md:p-12 h-full bg-gray-900/50 rounded-xl border transition-all cursor-pointer flex flex-col ${i === activeTab ? 'border-gold/60 shadow-[0_0_30px_rgba(212,175,55,0.1)]' : 'border-white/10 hover:border-gold/30'}`}>
                 <div className="section--bentocard-media mb-6">
                   <div className="section--bentocard-lottie h-48 w-full bg-black/50 rounded-lg flex items-center justify-center border border-white/5 group-hover:border-gold/20 transition-colors">
                      {/* Use icon or image here instead of placeholder */}

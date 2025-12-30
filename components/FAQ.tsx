@@ -49,12 +49,12 @@ export default function FAQ() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_2fr] gap-12">
            {/* Left Column: Heading */}
           <div className="md:sticky md:top-32 self-start">
-            <h2 className="text-4xl md:text-6xl font-serif italic text-black mb-6">
+            <h2 className="text-4xl md:text-7xl font-serif italic text-black mb-8 leading-[0.9]">
               Common <br />
-              <span className="text-gold font-space font-normal tracking-tight">Questions</span>
+              <span className="text-gold font-oswald font-bold tracking-tighter uppercase text-6xl md:text-9xl block">Questions</span>
             </h2>
-            <p className="text-gray-500 max-w-sm mb-8">
-               Everything you need to know about how we scale your facility.
+            <p className="text-gray-500 max-w-sm mb-12 font-serif italic text-lg">
+               Everything you need to know about how we scale your legacy.
             </p>
             <a 
               href="https://calendly.com/alexandermenginquiries/30min" 

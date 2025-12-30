@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Oswald, Inter, Instrument_Serif } from "next/font/google";
+import { Oswald, Inter, Instrument_Serif, Cinzel } from "next/font/google";
 import "./globals.css";
 
 const oswald = Oswald({
@@ -16,6 +16,11 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-instrument",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-cinzel",
 });
 
 import { Space_Grotesk } from "next/font/google";
@@ -39,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${oswald.variable} ${inter.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} antialiased font-sans`}
+        className={`${oswald.variable} ${inter.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} ${cinzel.variable} antialiased font-sans`}
       >
         {children}
         <ScrollToTopButton />

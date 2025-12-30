@@ -41,7 +41,7 @@ export default function Features() {
             
             <div className="space-y-16">
                <div className="space-y-6 relative">
-                  <h2 className="text-5xl md:text-7xl font-serif italic text-white tracking-tight leading-[0.9] drop-shadow-sm whitespace-nowrap">
+                  <h2 className="text-4xl md:text-7xl font-serif italic text-white tracking-tight leading-[0.9] drop-shadow-sm">
                     We&apos;ve Got Your Back
                   </h2>
                   <p className="text-xl md:text-2xl text-gold-gradient font-serif italic tracking-wide opacity-90 max-w-[560px] leading-relaxed">
