@@ -1,170 +1,191 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useState, useEffect } from 'react';
 
 interface LegalModalProps {
   isOpen: boolean;
   onClose: () => void;
-  activeTab?: string;
+  activeTab?: 'privacy' | 'terms' | 'cookies';
 }
 
-export default function LegalModal({ isOpen, onClose, activeTab = 'terms' }: LegalModalProps) {
-  const [mounted, setMounted] = useState(false);
+export default function LegalModal({ isOpen, onClose, activeTab = 'privacy' }: LegalModalProps) {
   const [currentTab, setCurrentTab] = useState(activeTab);
-  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
-    gsap.registerPlugin(ScrollTrigger);
-  }, []);
-
-  useEffect(() => {
-    setCurrentTab(activeTab);
-  }, [activeTab]);
-
-  useEffect(() => {
-    if (!mounted || !modalRef.current) return;
-
     if (isOpen) {
-      // Easol-style modal entrance
-      gsap.fromTo(modalRef.current, 
-        { 
-          scale: 0.8, 
-          opacity: 0, 
-          y: 50 
-        },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.4, 
-          ease: 'back.out(1.7)' 
-        }
-      );
+      setCurrentTab(activeTab);
+      // Lock body scroll
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
     }
-  }, [isOpen, mounted]);
+  }, [isOpen, activeTab]);
 
-  const tabs = [
-    { id: 'terms', title: 'Terms of Service', content: 'Your full terms content here...' },
-    { id: 'privacy', title: 'Privacy Policy', content: 'Your privacy policy content...' },
-    { id: 'cookies', title: 'Cookie Policy', content: 'Your cookie policy content...' }
-  ];
+  if (!isOpen) return null;
 
-  const handleClose = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    if (!modalRef.current) return;
-    
-    gsap.to(modalRef.current, {
-      scale: 0.8,
-      opacity: 0,
-      y: 50,
-      duration: 0.3,
-      ease: 'power2.in',
-      onComplete: onClose
-    });
+  const content = {
+    privacy: {
+      title: 'Privacy Policy',
+      updated: 'Last updated December 29, 2025',
+      blocks: [
+        {
+          head: 'Information we collect',
+          body: 'We collect personal information that you provide when you use our services, such as your name, contact details, and any details you choose to share when booking a call.'
+        },
+        {
+          head: 'How we use your information',
+          body: 'We use your information to provide and improve our services, respond to your inquiries, and keep your data secure.'
+        },
+        {
+          head: 'Your choices',
+          body: 'You can request access, updates, or deletion of your information at any time by contacting support.'
+        }
+      ]
+    },
+    terms: {
+      title: 'Terms of Service',
+      updated: 'Last updated December 29, 2025',
+      blocks: [
+        {
+          head: 'Acceptance of Terms',
+          body: 'By accessing and using our website, you agree to comply with these terms. If you do not agree, please do not use our services.'
+        },
+        {
+          head: 'Intellectual Property',
+          body: 'All content on this site, including text, graphics, logos, and code, is the property of Meng Media and is protected by copyright laws.'
+        },
+        {
+          head: 'Limitation of Liability',
+          body: 'Meng Media shall not be liable for any indirect, incidental, or consequential damages resulting from your use of our services.'
+        }
+      ]
+    },
+    cookies: {
+      title: 'Cookie Policy',
+      updated: 'Last updated December 29, 2025',
+      blocks: [
+        {
+          head: 'What are cookies?',
+          body: 'Cookies are small text files stored on your device that help us understand how you use our site and improve your experience.'
+        },
+        {
+          head: 'How we use cookies',
+          body: 'We use cookies for analytics, performance measurement, and to remember your preferences.'
+        },
+        {
+          head: 'Managing cookies',
+          body: 'You can control or delete cookies through your browser settings. However, disabling cookies may affect some site functionality.'
+        }
+      ]
+    }
   };
 
-  if (!mounted) return null;
+  const currentContent = content[currentTab as keyof typeof content];
 
   return (
-    <>
-      {/* Backdrop */}
+    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+      {/* Overlay */}
       <div 
-        className={`fixed inset-0 bg-black/80 backdrop-blur-md z-50 transition-all duration-500 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
-        onClick={handleClose}
+        className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-fade-in"
+        onClick={onClose}
       />
-      
-      {/* Modal */}
-      <div 
-        ref={modalRef}
-        className={`fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto z-50 ${
-          isOpen ? 'block' : 'hidden'
-        }`}
-      >
-        <div className="bg-dark-card border border-gold/30 rounded-3xl shadow-[0_0_50px_rgba(212,175,55,0.1)] p-8 md:p-12 relative overflow-hidden">
-          {/* Decorative Gold Glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
-          
-          {/* Header */}
-          <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 relative z-10">
-            <div className="flex gap-2 md:gap-4 border-b border-white/10 pb-6 overflow-x-auto w-full md:w-auto">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  className={`px-4 md:px-6 py-2 rounded-full font-serif italic text-lg transition-all whitespace-nowrap ${
-                    currentTab === tab.id
-                      ? 'bg-gold text-black shadow-lg scale-105 font-bold'
-                      : 'text-gray-400 hover:text-white hover:scale-105'
-                  }`}
-                  onClick={() => setCurrentTab(tab.id)}
-                >
-                  {tab.title}
-                </button>
-              ))}
+
+      {/* Modal Shell */}
+      <div className="relative w-[95%] max-w-5xl h-[80vh] md:h-[600px] bg-[#08080c]/95 border border-white/10 rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden animate-slide-up bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.08),transparent_60%)]">
+        
+        {/* Close Button Mobile */}
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 md:hidden z-20 text-gray-500 hover:text-white"
+        >
+          ✕
+        </button>
+
+        {/* Left Nav */}
+        <aside className="w-full md:w-64 bg-black/40 border-b md:border-b-0 md:border-r border-white/10 p-6 flex-shrink-0 flex flex-col gap-6 overflow-x-auto md:overflow-visible">
+          <div className="hidden md:block">
+            <h2 className="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-2">Meng Media</h2>
+            <p className="text-xs text-gray-400 leading-relaxed">
+              Here’s how we handle your data in plain language.
+            </p>
+          </div>
+
+          <nav className="flex md:flex-col gap-2">
+            {(['privacy', 'terms', 'cookies'] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setCurrentTab(tab)}
+                className={`text-left text-xs uppercase tracking-wider py-2 px-3 rounded-lg transition-all whitespace-nowrap ${
+                  currentTab === tab 
+                    ? 'bg-gold/10 text-gold font-bold' 
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {tab === 'privacy' ? 'Privacy Policy' : tab === 'terms' ? 'Terms of Service' : 'Cookie Policy'}
+              </button>
+            ))}
+          </nav>
+        </aside>
+
+        {/* Listen for keyboard ESC */}
+        {/* Main Content */}
+        <main className="flex-1 flex flex-col min-w-0">
+          <header className="p-8 border-b border-white/10 flex justify-between items-start">
+            <div>
+              <h1 className="text-2xl font-serif italic tracking-wide text-white mb-2">{currentContent.title}</h1>
+              <p className="text-xs text-gray-500">{currentContent.updated}</p>
             </div>
             
-            {/* Close Button */}
-            <button
-              onClick={handleClose}
-              className="group relative w-10 h-10 rounded-full border border-white/20 hover:border-gold/50 transition-all duration-300 flex items-center justify-center cursor-pointer hover:rotate-90"
-              aria-label="Close modal"
+            {/* Desktop Close */}
+            <button 
+              onClick={onClose}
+              className="hidden md:block text-gray-500 hover:text-white transition-colors text-xl leading-none cursor-pointer"
+              aria-label="Close"
             >
-              <svg 
-                className="w-4 h-4 text-white group-hover:text-gold transition-colors duration-200"
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              ✕
             </button>
+          </header>
+
+          <div className="flex-1 overflow-y-auto p-8 space-y-8 custom-scrollbar">
+            {currentContent.blocks.map((block, i) => (
+              <section key={i} className="mb-8 last:mb-0">
+                <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-2">{block.head}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed max-w-2xl">
+                  {block.body}
+                </p>
+              </section>
+            ))}
           </div>
 
-          {/* Content */}
-          <div className="space-y-8 text-gray-300 leading-relaxed relative z-10">
-            <div className="prose prose-invert max-w-none">
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 font-serif italic">
-                {tabs.find(t => t.id === currentTab)?.title}
-              </h1>
-              <p className="text-sm text-gold/80 mb-8 uppercase tracking-widest">
-                Last updated <span className="text-white">December 29, 2025</span>
-              </p>
-              
-              <div className="space-y-6 font-light">
-                <div>
-                  <h2 className="text-xl font-bold text-white mb-3 font-serif">1. Acceptance of Terms</h2>
-                  <p>By accessing and using our platform, you agree to be bound by these terms regarding our freelance marketing services...</p>
-                </div>
-                <div>
-                  <h2 className="text-xl font-bold text-white mb-3 font-serif">2. User Responsibilities</h2>
-                  <p>You are responsible for maintaining the confidentiality of your account details and strategy documents...</p>
-                </div>
-              </div>
+          <footer className="p-6 border-t border-white/10 flex justify-between items-center bg-black/20">
+            <div className="text-xs text-gray-500">
+              Questions? <a href="#contact" onClick={onClose} className="text-gold hover:underline cursor-pointer">Contact Support</a>
             </div>
-          </div>
-
-          {/* Footer CTA */}
-          <div className="border-t border-white/10 pt-8 mt-12 flex flex-col sm:flex-row gap-4 justify-between items-center relative z-10">
-            <p className="text-sm text-gray-500">
-              Need clarification? <a href="mailto:support@mengmedia.com" className="text-gold hover:underline">Contact legal</a>
-            </p>
-            <div className="flex gap-3">
-              <button 
-                onClick={handleClose}
-                className="px-6 py-2 border border-white/20 hover:border-white/40 rounded-full text-white text-sm hover:bg-white/5 transition-all cursor-pointer"
-              >
-                Close
-              </button>
-              <button 
-                className="px-6 py-2 bg-white text-black hover:bg-gold hover:text-white font-bold rounded-full text-sm shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
-              >
-                Download PDF
-              </button>
-            </div>
-          </div>
-        </div>
+            <button 
+              onClick={onClose}
+              className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer"
+            >
+              Dismiss
+            </button>
+          </footer>
+        </main>
       </div>
-    </>
+
+      <style jsx global>{`
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(20px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-slide-up { animation: slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .animate-fade-in { animation: fade-in 0.2s ease-out forwards; }
+        
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { bg: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+      `}</style>
+    </div>
   );
 }

@@ -48,19 +48,31 @@ export default function Hero() {
   return (
     <section className="bg-black text-white pt-48 pb-32 px-4 relative min-h-screen flex flex-col justify-center overflow-visible">
       
-      {/* Gold Glow Background */}
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none opacity-30"
-        style={{
-          background: 'radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, rgba(0,0,0,0) 70%)',
-        }}
-      />
+      {/* Cinematic Background Layers */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* 1. Light Falloff: Top charcoal gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent h-[50vh]" />
+        
+        {/* 2. Grid Texture: Same pattern as footer but softer */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40" />
+
+        {/* 3. Radial Glow: Spotlight on the card cluster */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(216,170,69,0.18),transparent_65%)]" />
+
+        {/* 4. Vignette: Side fades to deep black */}
+        <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-black to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-black to-transparent" />
+
+        {/* 5. Subtle Orbital Rings: Brand unity elements at low opacity */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-gold/5 rounded-full opacity-30" />
+      </div>
 
       <div className="max-w-[90rem] mx-auto w-full relative z-10 text-center">
         {/* Updated Headline: Empowering Slogan */}
         <h1 className="text-5xl md:text-8xl font-serif italic text-center mb-12 leading-[0.9] tracking-tight text-white drop-shadow-2xl">
           Architecting <br/> 
-          <span className="text-gold-gradient not-italic font-sans font-black tracking-tighter uppercase">Digital Legacies</span>
+          <span className="text-gold-gradient not-italic font-sans font-black tracking-tighter uppercase inline-block px-4">Digital Legacies</span>
         </h1>
 
         {/* Hero Tiles Container - Global Tracking Region */}
@@ -122,11 +134,11 @@ export default function Hero() {
         {/* Bottom Text & CTA */}
         <div className="text-center max-w-3xl mx-auto space-y-8">
            <p className="text-xl md:text-2xl text-gray-400 font-serif italic leading-relaxed tracking-wide">
-              Meng Media powers brands to scale through performance-driven creative strategies and data-backed media buying.
+              Meng Media is a performance‑driven marketing partner that designs, runs, and optimizes paid lead‑generation systems for local and service‑based businesses.
            </p>
            
            <a 
-             href="https://calendly.com" 
+             href="https://calendly.com/alexandermenginquiries/30min" 
              target="_blank" 
              rel="noopener noreferrer"
              className="inline-block bg-white text-black border border-white px-12 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-white transition-all hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)]"

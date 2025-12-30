@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useGSAP } from "@gsap/react";
+import CaseTicker from "./CaseTicker";
 
 const projects = [
   { name: "Hourglass", category: "DTC Skincare", result: "+150% ROAS" },
@@ -38,9 +39,11 @@ export default function Work() {
             <h2 className="text-4xl md:text-5xl font-serif italic text-white mb-4">Selected Work</h2>
             <p className="text-white/60 max-w-md">Brands we&apos;ve helped scale through meticulous strategy and creative execution.</p>
           </div>
-          <a href="https://calendly.com" className="text-gold uppercase tracking-widest text-sm hover:text-white transition-colors border-b border-gold pb-1">
-            Become our next success story
-          </a>
+        </div>
+        
+        {/* Ticker Banner */}
+        <div className="mb-12">
+           <CaseTicker />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

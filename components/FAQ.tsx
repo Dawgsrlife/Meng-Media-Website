@@ -5,88 +5,118 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
-    question: "How does Meng Media help with marketing?",
-    answer: "Meng Media provides data-driven marketing tools that automate campaigns, segment audiences, and personalize outreach to boost engagement and sales."
+    question: "How does Meng Media actually get me more customers?",
+    answer: "Meng Media designs, runs, and optimizes paid lead-generation systems that convert attention into qualified leads. We combine strategy, creative, and data to drive predictable revenue for local businesses."
   },
   {
-    question: "Can I manage my CRM within Meng Media services?",
-    answer: "Yes, we integrate fully with your CRM to track customer interactions, manage leads, and build lasting relationships."
+    question: "Can you plug into the way my team already sells?",
+    answer: "Yes. We don't just generate leads; we advise on the entire sales flow, integrating with CRM tools and providing coaching on follow-up speed and scripts to maximize closed deals."
   },
   {
-    question: "Is Meng Media suitable for large-scale events?",
-    answer: "Absolutely. Our strategies are built to handle high-volume ticket sales, complex booking flows, and massive data operations with ease."
+    question: "Is this suitable for my service business?",
+    answer: "We specialize in service-based businesses like home services, health & wellness, and contractors whose growth depends on inbound inquiries and booked appointments."
   },
   {
-    question: "Does Meng Media integrate with my stack?",
-    answer: "We seamlessly integrate with popular payment gateways, social media platforms, and analytics tools."
+    question: "What makes your offers different?",
+    answer: "We engineer time-bound, low-friction offers aligned to urgent customer needs. Instead of generic ads, we create specific reasons to act now, increasing conversion rates."
+  },
+  {
+    question: "How do you handle ad creative?",
+    answer: "We design and test scroll-stopping visuals and headlines. We continuously rotate creatives to combat fatigue and improve click-through rates, ensuring your brand stays fresh."
   }
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+  const toggleFAQ = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
 
   return (
-    <section className="bg-white text-black py-32 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
-        
-        {/* Header */}
-        <div className="h-fit">
-           <h2 className="text-5xl md:text-7xl font-serif italic font-black uppercase leading-none mb-8 tracking-tighter break-words">
-              Questions? <br/> We&apos;ve got <br/> you.
-           </h2>
-           <p className="text-xl text-gray-600 mb-8 font-light max-w-md">
-              Ready to revolutionize how you sell experiences? It&apos;s not too good to be true. It&apos;s Meng Media.
-           </p>
-           <a 
-             href="https://calendly.com"
-             target="_blank"
-             rel="noopener noreferrer"
-             className="inline-block border border-black px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors cursor-pointer uppercase tracking-widest text-sm"
-           >
-              Book a Call
-           </a>
-        </div>
+    <section id="faq" className="py-24 bg-white relative overflow-visible shadow-sm">
+       {/* Background Grid & Noise */}
+       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:40px_40px] opacity-100 pointer-events-none" />
+       
+       {/* Top Soft Gradient */}
+       <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10" />
 
-        {/* Accordion */}
-        <div className="space-y-4 pt-8 lg:pt-0">
-           <h3 className="text-3xl font-serif italic font-bold mb-8">How does Meng Media work?</h3>
-           <p className="text-gray-600 mb-12 leading-relaxed text-lg font-light">
-              You&apos;ll first need to create an account. Then activate your dashboard, enable payments, and watch your sales grow. No more dealing with rigid systems.
-           </p>
+       {/* Orbital Glyphs */}
+       <div className="absolute top-1/4 right-0 w-96 h-96 border border-gold/10 rounded-full translate-x-1/2 pointer-events-none" />
+       <div className="absolute bottom-0 left-20 w-64 h-64 border border-gold/5 rounded-full border-dashed pointer-events-none" />
 
-           <div className="border-t border-black/20">
-              {faqs.map((faq, index) => (
-                 <div key={index} className="border-b border-black/20">
-                    <button 
-                       onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                       className="w-full py-6 flex justify-between items-center text-left transition-all hover:bg-gray-50 px-4 rounded-lg group cursor-pointer relative z-10"
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_2fr] gap-12">
+           {/* Left Column: Heading */}
+          <div className="md:sticky md:top-32 self-start">
+            <h2 className="text-4xl md:text-6xl font-serif italic text-black mb-6">
+              Common <br />
+              <span className="text-gold font-sans font-normal tracking-tight">Questions</span>
+            </h2>
+            <p className="text-gray-500 max-w-sm mb-8">
+               Everything you need to know about how we scale your facility.
+            </p>
+            <a 
+              href="https://calendly.com/alexandermenginquiries/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-black text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-gold transition-colors"
+            >
+               Ask us anything
+            </a>
+          </div>
+
+          {/* Vertical Divider */}
+          <div className="hidden md:block w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
+
+          {/* Right Column: FAQ Items */}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index} 
+                className="group relative"
+              >
+                {/* Active Highlight Bar */}
+                {activeIndex === index && (
+                   <motion.div 
+                     layoutId="activeHighlight"
+                     className="absolute -inset-x-6 inset-y-0 bg-gold/5 rounded-2xl -z-10"
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     exit={{ opacity: 0 }}
+                   />
+                )}
+                
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex justify-between items-center py-6 text-left border-b border-gray-100 group-last:border-none cursor-pointer hover:bg-gray-50/50 transition-colors px-2 -mx-2 rounded-lg"
+                >
+                  <span className={`text-xl md:text-2xl transition-colors duration-300 ${activeIndex === index ? 'font-bold text-black' : 'font-medium text-gray-800'}`}>
+                    {faq.question}
+                  </span>
+                  <span className={`ml-4 transform transition-transform duration-300 text-gold ${activeIndex === index ? 'rotate-180' : ''}`}>
+                    {activeIndex === index ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {activeIndex === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
                     >
-                       <span className={`text-xl md:text-2xl font-serif italic flex-1 transition-colors duration-300 ${openIndex === index ? 'text-black font-bold' : 'text-gray-500 group-hover:text-black'}`}>
-                          {faq.question}
-                       </span>
-                       <div className={`ml-4 flex-shrink-0 transition-colors duration-300 ${openIndex === index ? 'text-black' : 'text-gray-400 group-hover:text-black'}`}>
-                          {openIndex === index ? <ChevronUp /> : <ChevronDown />}
-                       </div>
-                    </button>
-                    <AnimatePresence>
-                       {openIndex === index && (
-                          <motion.div 
-                             initial={{ height: 0, opacity: 0 }}
-                             animate={{ height: 'auto', opacity: 1 }}
-                             exit={{ height: 0, opacity: 0 }}
-                             className="overflow-hidden"
-                          >
-                             <p className="pb-8 text-gray-600 text-lg leading-relaxed px-4 -mx-4 font-light">
-                                {faq.answer}
-                             </p>
-                          </motion.div>
-                       )}
-                    </AnimatePresence>
-                 </div>
-              ))}
-           </div>
+                      <div className="pb-8 pt-2 text-gray-600 leading-relaxed max-w-2xl">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
         </div>
-
       </div>
     </section>
   );

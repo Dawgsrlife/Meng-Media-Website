@@ -75,7 +75,9 @@ export default function EasolBento() {
                       <span className="section--bentocard-stat-number text-2xl font-bold text-white font-serif">{card.stat}</span>
                     </div>
                   </div>
-                  <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="primary inline-flex items-center text-gold font-bold uppercase tracking-widest text-xs group-hover:translate-x-2 transition-transform cursor-pointer">
+                  <a 
+                  href="https://calendly.com/alexandermenginquiries/30min"
+                  target="_blank" rel="noopener noreferrer" className="primary inline-flex items-center text-gold font-bold uppercase tracking-widest text-xs group-hover:translate-x-2 transition-transform cursor-pointer">
                     <span>Explore platform</span>
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                   </a>

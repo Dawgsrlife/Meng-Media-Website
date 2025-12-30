@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
+import MengLogo from './MengLogo';
 
 export default function AllInOne() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -43,21 +44,27 @@ export default function AllInOne() {
       ref={containerRef} 
       className="py-32 px-4 overflow-hidden relative bg-black"
     >
-      {/* Pindot Grid Background with Fadeout */}
+      {/* Visible Grid Background with Fadeout */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
+          backgroundImage: `
+            linear-gradient(to right, #333 1px, transparent 1px),
+            linear-gradient(to bottom, #333 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)'
         }}
       />
       <div className="max-w-7xl mx-auto text-center mb-24 relative z-10">
          <h2 className="text-6xl md:text-8xl font-serif italic text-white mb-8">Your All-in-One <br/> Platform</h2>
-         <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light tracking-wide">
-            Everything you need to scale your experience business.
-         </p>
+          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+            Everything you need in one place. No bloat. Just performance.
+          </p>
+          <a href="https://calendly.com/alexandermenginquiries/30min" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-white transition-colors cursor-pointer">
+            Access The Hub
+          </a>
       </div>
 
       <div className="relative h-[600px] max-w-5xl mx-auto flex items-center justify-center">
@@ -66,10 +73,7 @@ export default function AllInOne() {
             {/* Inner ring */}
             <div className="absolute inset-4 rounded-full border border-white/5" />
             
-            <div className="text-center">
-               <span className="block text-4xl md:text-5xl font-serif italic font-bold tracking-tight text-white drop-shadow-2xl mb-2">MENG</span>
-               <span className="block text-3xl md:text-4xl font-sans font-black tracking-[0.2em] text-gold-gradient uppercase">MEDIA</span>
-            </div>
+            <MengLogo variant="primary" />
          </div>
 
          {/* Floating Cards */}

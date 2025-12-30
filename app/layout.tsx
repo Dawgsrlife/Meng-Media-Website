@@ -18,6 +18,12 @@ const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument",
 });
 
+import { Space_Grotesk } from "next/font/google";
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+});
+
 export const metadata: Metadata = {
   title: "Meng Media | Performance Marketing",
   description: "Meng Media powers brands to scale through performance-driven creative strategies.",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${oswald.variable} ${inter.variable} ${instrumentSerif.variable} antialiased font-sans`}
+        className={`${oswald.variable} ${inter.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable} antialiased font-sans`}
       >
         {children}
         <ScrollToTopButton />

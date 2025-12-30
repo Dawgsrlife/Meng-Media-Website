@@ -33,7 +33,7 @@ export default function Contact() {
         </p>
 
         <a 
-          href="https://calendly.com"
+          href="https://calendly.com/alexandermenginquiries/30min" 
           target="_blank"
           rel="noopener noreferrer"
           className="contact-reveal group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-black transition-all duration-200 bg-gold font-sans uppercase tracking-widest hover:bg-white hover:scale-105 rounded-full mt-4"

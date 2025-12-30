@@ -1,6 +1,8 @@
 'use client';
 import { useFooterModal } from '../hooks/useFooterModal';
-import AppleFooterModal from './AppleFooterModal';
+import LegalModal from './LegalModal';
+
+import MengLogo from './MengLogo';
 
 export default function Footer() {
   const { isOpen, activeTab, openModal, closeModal } = useFooterModal();
@@ -10,11 +12,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <div>
-            <h2 className="text-4xl font-bold mb-2 font-serif italic tracking-wide text-white">Meng Media</h2>
+            <div className="mb-4">
+               <MengLogo variant="nav" />
+            </div>
             <p className="text-xl text-gray-400 font-light font-sans tracking-widest uppercase text-xs">Performance, Refined.</p>
           </div>
           <div className="flex flex-col md:items-end justify-center">
-             <p className="text-gray-500">© 2025 Meng Media</p>
+             <p className="text-gray-500 font-oswald tracking-widest uppercase">© 2026 Meng Media</p>
           </div>
         </div>
         
@@ -25,10 +29,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <AppleFooterModal 
+      <LegalModal 
         isOpen={isOpen} 
         onClose={closeModal} 
-        activeTab={activeTab} 
+        activeTab={activeTab as "privacy" | "terms" | "cookies"} 
       />
     </footer>
   );

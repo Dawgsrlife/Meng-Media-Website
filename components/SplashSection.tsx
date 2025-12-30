@@ -48,7 +48,7 @@ export default function SplashSection({ imageSrc, alt, title }: SplashSectionPro
       </div>
       {title && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-          <h2 className="text-6xl md:text-9xl font-serif italic text-gold-gradient uppercase tracking-tighter drop-shadow-2xl">
+          <h2 className="text-6xl md:text-9xl font-serif italic text-gold-gradient uppercase tracking-tighter drop-shadow-2xl pr-8">
             {title}
           </h2>
         </div>
