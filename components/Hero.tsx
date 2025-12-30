@@ -80,7 +80,7 @@ function HeroCard({ item, index, smoothMouseX, smoothIsWithin, isActive, isDimme
         <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-black/40 pointer-events-none mix-blend-overlay" />
       </motion.div>
       
-      <p className={`text-[12px] font-sans font-bold uppercase tracking-[0.24em] transition-colors duration-300 text-center select-none ${
+      <p className={`text-[12px] font-space font-bold uppercase tracking-[0.24em] transition-colors duration-300 text-center select-none ${
         isActive 
           ? 'text-white' 
           : isDimmed 
@@ -175,7 +175,7 @@ export default function Hero() {
       <div className="max-w-[90rem] mx-auto w-full relative z-10 text-center">
         <h1 className="text-5xl md:text-8xl font-serif italic text-center mb-20 leading-[0.9] tracking-tight text-white drop-shadow-2xl">
           Architecting <br/> 
-          <span className="text-gold-gradient not-italic font-sans font-black tracking-tighter uppercase inline-block px-4">Digital Legacies</span>
+          <span className="text-gold-gradient not-italic font-oswald font-bold tracking-tighter uppercase inline-block px-4">Digital Legacies</span>
         </h1>
 
         <div 
@@ -204,7 +204,7 @@ export default function Hero() {
              href="https://calendly.com/alexandermenginquiries/30min" 
              target="_blank" 
              rel="noopener noreferrer"
-             className="inline-block bg-white text-black border border-white px-12 py-4 rounded-full text-lg font-bold uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-white transition-all hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+             className="inline-block bg-white text-black border border-white px-12 py-4 rounded-full text-lg font-oswald font-bold uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-white transition-all hover:scale-105 cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)]"
            >
               Book a Call
            </a>

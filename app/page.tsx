@@ -4,9 +4,6 @@ import LogoTicker from '../components/LogoTicker';
 import Tickers from '../components/Tickers';
 import AllInOne from '../components/AllInOne';
 import SplashSection from '../components/SplashSection';
-// import ScrollingGallery from '../components/ScrollingGallery';
-// import Clients from '../components/Clients';
-// import Proof from '../components/Proof';
 import Features from '../components/Features';
 import CTA from '../components/CTA';
 import FAQ from '../components/FAQ';
@@ -14,7 +11,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    <main className="bg-black min-h-screen overflow-x-hidden">
       <SharpHeader />
       <Hero />
       <LogoTicker />
@@ -22,10 +19,7 @@ export default function Home() {
       <Tickers />
       <div id="about">
         <AllInOne />
-        {/* <ScrollingGallery /> */}
-        {/* <Clients /> */}
         <SplashSection imageSrc="/journey/pexels-laker-6156360.jpg" alt="Splash 2" title="JOURNEY" />
-        {/* <Proof /> */}
         <div id="features">
            <Features />
         </div>

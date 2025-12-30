@@ -1,15 +1,9 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
-// Placeholder for Lottie since we don't have the JSONs
-const LottiePlaceholder = () => (
-  <div className="w-full h-full bg-white/5 rounded-lg flex items-center justify-center animate-pulse border border-white/10">
-    <span className="text-gold/50 font-bold font-serif italic">Loading...</span>
-  </div>
-);
+
 
 const bentoData = [
   { title: 'Website', text: 'Build your dream site...', stat: '30% site conversions', lottie: '/Bento-01opt-1.json' },
@@ -72,12 +66,12 @@ export default function EasolBento() {
                   <p className="section--bentocard-text text-gray-400 mb-8 leading-relaxed font-light">{card.text}</p>
                   <div className="section--bentocard-stats flex gap-4 mb-8">
                     <div className="section--bentocard-stat flex items-center">
-                      <span className="section--bentocard-stat-number text-2xl font-bold text-white font-serif">{card.stat}</span>
+                      <span className="section--bentocard-stat-number text-2xl font-bold text-white font-space">{card.stat}</span>
                     </div>
                   </div>
                   <a 
                   href="https://calendly.com/alexandermenginquiries/30min"
-                  target="_blank" rel="noopener noreferrer" className="primary inline-flex items-center text-gold font-bold uppercase tracking-widest text-xs group-hover:translate-x-2 transition-transform cursor-pointer">
+                  target="_blank" rel="noopener noreferrer" className="primary inline-flex items-center text-gold font-oswald font-bold uppercase tracking-widest text-xs group-hover:translate-x-2 transition-transform cursor-pointer">
                     <span>Explore platform</span>
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                   </a>
@@ -92,7 +86,7 @@ export default function EasolBento() {
           {bentoData.slice(0, 6).map((card, i) => (
             <li 
               key={i}
-              className={`section--bentotab px-6 py-2 rounded-full font-bold uppercase tracking-widest text-xs cursor-pointer transition-all border ${i === activeTab ? 'bg-gold text-black border-gold scale-105' : 'bg-transparent text-gray-500 border-transparent hover:border-white/20 hover:text-white'}`}
+              className={`section--bentotab px-6 py-2 rounded-full font-space font-bold uppercase tracking-widest text-[9px] cursor-pointer transition-all border ${i === activeTab ? 'bg-gold text-black border-gold scale-105' : 'bg-transparent text-gray-500 border-transparent hover:border-white/20 hover:text-white'}`}
               onClick={() => setActiveTab(i)}
             >
               {card.title}

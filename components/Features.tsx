@@ -52,7 +52,7 @@ export default function Features() {
                <div className="space-y-12">
                   <h3 className="text-4xl md:text-5xl font-serif italic text-white leading-tight">
                     Create a memorable <br/>
-                    <span className="font-sans font-normal text-3xl md:text-4xl block mt-2 text-gold opacity-80 uppercase tracking-widest">experience for your facility</span>
+                    <span className="font-oswald font-normal text-3xl md:text-4xl block mt-2 text-gold opacity-80 uppercase tracking-widest">experience for your facility</span>
                   </h3>
                   
                   <div className="grid grid-cols-2 gap-6 items-end">
@@ -80,7 +80,7 @@ export default function Features() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                </div>
                
-               <p className="text-lg text-gray-400 font-serif italic leading-relaxed text-center lg:text-right max-w-[500px]">
+               <p className="text-lg text-gray-400 font-sans italic leading-relaxed text-center lg:text-right max-w-[500px]">
                  We handle the lead generation and technical orchestration so you can focus on the heart of your business.
                </p>
             </div>

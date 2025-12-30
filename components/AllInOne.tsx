@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, useState } from 'react';
 import Image from 'next/image';
 import MengLogo from './MengLogo';
 import { motion, useInView } from 'framer-motion';
@@ -14,8 +14,8 @@ function SatelliteCard({ imgName, index, isInView }: SatelliteCardProps) {
   const baseAngle = (index / 5) * 360;
   const radius = 364; // 280 * 1.3
   
-  // Ambient drift duration
-  const ambientDuration = useMemo(() => 8 + Math.random() * 4, []);
+  // Ambient drift duration - fixed react purity
+  const [ambientDuration] = useState(() => 8 + Math.random() * 4);
 
   return (
     <motion.div 
@@ -132,7 +132,7 @@ export default function AllInOne() {
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
             Everything you need in one place. No fluff, just performance.
           </p>
-          <a href="https://calendly.com/alexandermenginquiries/30min" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-white transition-colors cursor-pointer">
+          <a href="https://calendly.com/alexandermenginquiries/30min" target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-black px-8 py-3 rounded-full font-oswald font-bold uppercase tracking-widest text-sm hover:bg-gold hover:text-white transition-colors cursor-pointer">
             Access The Hub
           </a>
       </div>
@@ -174,7 +174,7 @@ export default function AllInOne() {
             href="https://calendly.com/alexandermenginquiries/30min" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="relative z-10 inline-block bg-white text-black border border-white px-12 py-5 rounded-full text-lg font-black uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-white transition-all hover:scale-105 cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+            className="relative z-10 inline-block bg-white text-black border border-white px-12 py-5 rounded-full text-lg font-oswald font-bold uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-white transition-all hover:scale-105 cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.1)]"
          >
             Start Scaling Today
          </a>

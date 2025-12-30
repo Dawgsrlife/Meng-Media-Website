@@ -75,13 +75,13 @@ export default function CTA() {
              href="https://calendly.com/alexandermenginquiries/30min" 
              target="_blank" 
              rel="noopener noreferrer" 
-             className="relative inline-block bg-white text-black px-16 py-7 text-2xl font-bold rounded-full overflow-hidden transition-all transform hover:translate-y-[-2px] hover:scale-[1.02] isolation-auto z-10"
+             className="relative inline-block bg-white text-black px-16 py-7 text-2xl font-oswald font-bold rounded-full overflow-hidden transition-all transform hover:translate-y-[-2px] hover:scale-[1.02] isolation-auto z-10"
            >
               {/* Gold fill animation layer */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#f6d68b] to-[#d6aa45] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
               <span className="relative z-10 uppercase tracking-[0.15em] transition-colors group-hover:text-black">Book a Call</span>
            </a>
-           <p className="mt-8 text-gold/60 text-sm uppercase tracking-[0.3em] font-sans font-bold">
+           <p className="mt-8 text-gold/60 text-sm uppercase tracking-[0.3em] font-space font-bold">
               Spaces for Q1 2026 are strictly limited
            </p>
         </div>

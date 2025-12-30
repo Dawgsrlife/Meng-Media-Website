@@ -36,7 +36,7 @@ export default function Contact() {
           href="https://calendly.com/alexandermenginquiries/30min" 
           target="_blank"
           rel="noopener noreferrer"
-          className="contact-reveal group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-black transition-all duration-200 bg-gold font-sans uppercase tracking-widest hover:bg-white hover:scale-105 rounded-full mt-4"
+          className="contact-reveal group relative inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-black transition-all duration-200 bg-gold font-oswald uppercase tracking-widest hover:bg-white hover:scale-105 rounded-full mt-4"
         >
           Book Your Strategy Call
           <svg className="w-5 h-5 ml-2 -mr-1 transition-transform duration-200 group-hover:translate-x-1" fill="currentColor" viewBox="0 0 20 20">

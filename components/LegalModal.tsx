@@ -11,13 +11,14 @@ export default function LegalModal({ isOpen, onClose, activeTab = 'privacy' }: L
 
   useEffect(() => {
     if (isOpen) {
+      // Sync local tab state with prop when modal opens
       setCurrentTab(activeTab);
       // Lock body scroll
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isOpen, activeTab]);
+  }, [isOpen]); // Only trigger when modal opening state changes
 
   if (!isOpen) return null;
 

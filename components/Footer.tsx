@@ -97,7 +97,7 @@ export default function Footer() {
                ].map((link, i) => (
                  <div key={link.id} className="flex items-center gap-8">
                     <motion.button 
-                      onClick={() => openModal(link.id as any)} 
+                      onClick={() => openModal(link.id as "terms" | "privacy" | "cookies")} 
                       whileHover={{ color: '#D4AF37', opacity: 1 }}
                       className="text-[10px] md:text-xs text-gray-400/80 uppercase tracking-[0.2em] transition-colors duration-300 cursor-pointer"
                     >

@@ -60,7 +60,7 @@ export default function SharpHeader() {
               key={item} 
               href={`#${item.toLowerCase()}`}
               onClick={(e) => handleNavClick(e, item.toLowerCase())}
-              className="text-[12px] font-sans font-semibold uppercase tracking-[0.18em] text-white/70 hover:text-white transition-colors duration-300"
+              className="text-[12px] font-space font-semibold uppercase tracking-[0.18em] text-white/70 hover:text-white transition-colors duration-300"
             >
               {item}
             </a>
@@ -72,13 +72,12 @@ export default function SharpHeader() {
           href="https://calendly.com/alexandermenginquiries/30min" 
           target="_blank" 
           rel="noopener noreferrer"
-          className={`px-5 py-2.5 rounded-full font-sans font-bold uppercase tracking-[0.22em] text-[10px] transition-all duration-300 transform active:scale-95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] ${
+          className={`px-5 py-2.5 rounded-full font-oswald font-bold uppercase tracking-[0.22em] text-[10px] transition-all duration-300 transform active:scale-95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] ${
             isScrolled 
               ? 'bg-gold text-black hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]' 
               : 'bg-white text-black hover:bg-gold'
           }`}
           style={{ 
-            fontVariationSettings: '"wght" 700', // Explicitly keep weight during transform if variable font
             WebkitFontSmoothing: 'antialiased'
           }}
         >

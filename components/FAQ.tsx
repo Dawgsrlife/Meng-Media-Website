@@ -51,7 +51,7 @@ export default function FAQ() {
           <div className="md:sticky md:top-32 self-start">
             <h2 className="text-4xl md:text-6xl font-serif italic text-black mb-6">
               Common <br />
-              <span className="text-gold font-sans font-normal tracking-tight">Questions</span>
+              <span className="text-gold font-space font-normal tracking-tight">Questions</span>
             </h2>
             <p className="text-gray-500 max-w-sm mb-8">
                Everything you need to know about how we scale your facility.
@@ -60,7 +60,7 @@ export default function FAQ() {
               href="https://calendly.com/alexandermenginquiries/30min" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block bg-black text-white px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-gold transition-colors"
+              className="inline-block bg-black text-white px-8 py-3 rounded-full font-oswald font-bold uppercase tracking-widest text-sm hover:bg-gold transition-colors"
             >
                Ask us anything
             </a>
@@ -91,7 +91,7 @@ export default function FAQ() {
                   onClick={() => toggleFAQ(index)}
                   className="w-full flex justify-between items-center py-6 text-left border-b border-gray-100 group-last:border-none cursor-pointer hover:bg-gray-50/50 transition-colors px-2 -mx-2 rounded-lg"
                 >
-                  <span className={`text-xl md:text-2xl transition-colors duration-300 ${activeIndex === index ? 'font-bold text-black' : 'font-medium text-gray-800'}`}>
+                  <span className={`text-xl md:text-2xl font-space transition-colors duration-300 ${activeIndex === index ? 'font-bold text-black' : 'font-medium text-gray-800'}`}>
                     {faq.question}
                   </span>
                   <span className={`ml-4 transform transition-transform duration-300 text-gold ${activeIndex === index ? 'rotate-180' : ''}`}>

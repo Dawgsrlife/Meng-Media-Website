@@ -17,7 +17,7 @@ export default function CaseTicker() {
     <div className="bg-black py-16 border-y border-white/5 relative overflow-hidden group">
       {/* Anchor Label */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold/60 font-sans">
+        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold/60 font-space">
           WHAT MENG MEDIA DOES
         </span>
       </div>

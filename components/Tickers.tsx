@@ -74,7 +74,7 @@ export default function Tickers() {
           {[...items, ...items, ...items, ...items].reverse().map((item, i) => (
              <div key={i} className="flex items-center gap-12">
                 {item.type === 'text' ? (
-                   <span className="text-6xl md:text-8xl font-bold uppercase tracking-tighter text-gold/80">{item.content}</span>
+                   <span className="text-6xl md:text-8xl font-oswald font-bold uppercase tracking-tighter text-gold/80">{item.content}</span>
                 ) : (
                    <div className="relative w-64 h-32 md:w-80 md:h-48 rounded-lg overflow-hidden border border-gold/20 grayscale hover:grayscale-0 transition-all">
                       <Image src={item.src!} alt="Ticker" fill className="object-cover" />

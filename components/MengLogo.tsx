@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 type Variant = 'primary' | 'nav' | 'icon';
 
@@ -12,30 +13,30 @@ export default function MengLogo({ variant = 'primary', className = '' }: MengLo
   
   if (variant === 'icon') {
      return (
-        <a href="/" className={`inline-flex items-center justify-center ${className}`}>
+        <Link href="/" className={`inline-flex items-center justify-center ${className}`}>
            <div className="relative w-16 h-16 rounded-full bg-[radial-gradient(circle_at_30%_0,rgba(255,255,255,0.16),#020306)] shadow-[0_0_20px_rgba(0,0,0,0.9),0_0_60px_rgba(216,170,69,0.45)] flex items-center justify-center overflow-hidden">
               <div className="relative w-[72%] h-[72%] rounded-full bg-[radial-gradient(circle_at_30%_0,rgba(255,255,255,0.22),#050509)] shadow-[0_0_16px_rgba(0,0,0,0.85)] flex items-center justify-center animate-pulse-slow">
                  <span className="text-xl font-bold text-white tracking-widest font-space">M</span>
               </div>
            </div>
-        </a>
+        </Link>
      );
   }
 
   if (variant === 'nav') {
      return (
-        <a href="/" className={`inline-flex items-center gap-4 text-white no-underline group ${className}`}>
-            <div className="relative w-10 h-10 rounded-full bg-[radial-gradient(circle_at_30%_0,rgba(255,255,255,0.16),#020306)] shadow-[0_0_10px_rgba(0,0,0,0.9),0_0_20px_rgba(216,170,69,0.3)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <Link href="/" className={`inline-flex items-center gap-4 text-white no-underline group ${className}`}>
+            <div className="relative w-10 h-10 rounded-full bg-[radial-gradient(circle_at_30%_0,rgba(255,255,255,0.16),#020306)] shadow-[0_0_10px_rgba(0,0,0,0.9),0_0_20px_rgba(212,175,55,0.3)] flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
               <div className="relative w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle_at_30%_0,rgba(255,255,255,0.22),#050509)] shadow-[0_0_8px_rgba(0,0,0,0.85)] flex items-center justify-center">
                  <span className="text-[12px] font-bold text-white tracking-wider font-space">M</span>
               </div>
            </div>
            <div className="flex flex-col justify-center">
-              <span className="text-[16px] font-bold tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline-block text-white transition-opacity group-hover:opacity-80 font-space">
+              <span className="text-[16px] font-oswald font-bold tracking-[0.2em] uppercase whitespace-nowrap hidden sm:inline-block text-white transition-opacity group-hover:opacity-80">
                   MENG MEDIA
               </span>
            </div>
-        </a>
+        </Link>
      );
   }
 
@@ -56,10 +57,10 @@ export default function MengLogo({ variant = 'primary', className = '' }: MengLo
                </span>
                
                {/* Label - Space Grotesk SemiBold */}
-               <span className="text-[9px] font-semibold tracking-[0.3em] uppercase text-gold/60 font-sans">
+               <span className="text-[9px] font-semibold tracking-[0.3em] uppercase text-gold/60 font-space">
                   GROWTH HUB
                </span>
-
+               
                {/* Breathing internal glow */}
                <div className="absolute inset-0 rounded-full bg-gold/[0.02] animate-pulse-slow pointer-events-none" />
             </div>
