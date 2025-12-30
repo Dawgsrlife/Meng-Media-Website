@@ -1,53 +1,58 @@
 'use client';
+import { motion } from 'framer-motion';
 
 export default function CaseTicker() {
-  const content = (
-    <>
-       <span className="text-white/40 font-bold mx-8 tracking-widest text-lg font-oswald uppercase">Become our next case study</span>
-       <span className="text-gold/60 mx-4">✦</span>
-       <span className="text-white/40 font-bold mx-8 tracking-widest text-lg font-oswald uppercase">Become our next case study</span>
-       <span className="text-gold/60 mx-4">✦</span>
-       {/* Center Highlight */}
-       <span className="text-gold font-bold mx-8 tracking-widest text-xl font-oswald uppercase drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]">Become our next case study</span>
-       <span className="text-gold/60 mx-4">✦</span>
-       <span className="text-white/40 font-bold mx-8 tracking-widest text-lg font-oswald uppercase">Become our next case study</span>
-       <span className="text-gold/60 mx-4">✦</span>
-    </>
-  );
+  const proofPoints = [
+    { text: "CASE STUDIES", highlight: false },
+    { text: "LOCAL BRANDS WE'VE SCALED", highlight: false },
+    { text: "CALENDARS WE'VE BOOKED OUT", highlight: false },
+    { text: "LEADS TURNED INTO REVENUE", highlight: false },
+    { text: "BECOME OUR NEXT CASE STUDY", highlight: true },
+  ];
+
+  // Create a long enough string to loop smoothly
+  const tickerContent = [...proofPoints, ...proofPoints, ...proofPoints];
 
   return (
-    <div className="relative w-full overflow-hidden bg-black py-8 border-y border-white/10 shadow-[0_0_50px_rgba(212,175,55,0.05)]">
-      {/* Radial Glow Top/Bottom */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
-      
-      {/* Marquee Container */}
-      <div className="flex w-full overflow-hidden relative">
-         <div className="flex animate-marquee whitespace-nowrap items-center">
-            {content}
-            {content}
-            {content}
-            {content}
-         </div>
-         <div className="flex animate-marquee whitespace-nowrap items-center absolute top-0 left-full">
-            {content}
-            {content}
-            {content}
-            {content}
-         </div>
+    <div className="bg-black py-16 border-y border-white/5 relative overflow-hidden group">
+      {/* Anchor Label */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-gold/60 font-sans">
+          WHAT MENG MEDIA DOES
+        </span>
       </div>
 
-       {/* Central CTA Overlay */}
-       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <a 
-            href="https://calendly.com/alexandermenginquiries/30min" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="pointer-events-auto bg-black/80 backdrop-blur-sm border border-gold/50 text-gold px-8 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition-all shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transform hover:scale-105"
-          >
-             Become our next case study
-          </a>
-       </div>
+      <div className="flex select-none overflow-hidden">
+        <motion.div 
+          className="flex whitespace-nowrap items-center gap-16 py-4"
+          initial={{ x: 0 }}
+          animate={{ x: "-50%" }}
+          transition={{
+            duration: 35,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          {tickerContent.map((point, i) => (
+            <div key={i} className="flex items-center gap-16">
+              {point.highlight ? (
+                <span className="text-4xl md:text-6xl font-serif italic tracking-tight text-gold opacity-100 hover:text-white transition-all duration-500">
+                  {point.text}
+                </span>
+              ) : (
+                <span className="text-4xl md:text-6xl font-serif italic tracking-tight text-white/20 group-hover:text-white/30 transition-all duration-500">
+                  {point.text}
+                </span>
+              )}
+              <span className="text-gold/20 text-2xl">✦</span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Side Vignettes for cinematic fade */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
     </div>
   );
 }
