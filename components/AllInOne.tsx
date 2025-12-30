@@ -109,8 +109,13 @@ export default function AllInOne() {
     >
       {/* Cinematic Grid & Background Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Central Gold Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[radial-gradient(circle,rgba(216,170,69,0.15),transparent_70%)] opacity-100" />
+        {/* Hub Section Background: Precise Lighting */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `radial-gradient(circle at 20% 0, rgba(216,170,69,0.16), transparent 55%), #010103`
+          }}
+        />
         
         {/* Standard 80px Grid */}
         <div 
@@ -138,24 +143,8 @@ export default function AllInOne() {
       </div>
 
       <div className="relative h-[850px] max-w-5xl mx-auto flex items-center justify-center overflow-visible">
-         {/* Central Hub Core */}
          <div className="absolute z-20 w-80 h-80 rounded-full flex items-center justify-center">
             <MengLogo variant="primary" />
-            
-            {/* Ambient Pulse Ring */}
-            <motion.div 
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={isInView ? { 
-                scale: [1, 1.4, 1.8],
-                opacity: [0, 0.3, 0] 
-              } : {}}
-              transition={{ 
-                duration: 4, 
-                repeat: Infinity, 
-                ease: "easeOut"
-              }}
-              className="absolute inset-x-0 inset-y-0 border border-gold/30 rounded-full pointer-events-none"
-            />
          </div>
 
          {/* Circular Orbit Satellite Cards */}
