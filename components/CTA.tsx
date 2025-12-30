@@ -31,9 +31,23 @@ export default function CTA() {
 
   return (
     <section id="contact" ref={containerRef} className="bg-gradient-to-b from-[#020204] to-black py-40 px-8 text-white overflow-hidden relative">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gold/5 blur-[120px] rounded-full" />
-        <div className="absolute inset-x-0 top-0 bottom-[100px] bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px] opacity-30" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Central Gold Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[radial-gradient(circle,rgba(216,170,69,0.18),transparent_70%)] blur-[120px] opacity-100" />
+        
+        {/* Standard 80px Grid */}
+        <div 
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px',
+            maskImage: 'radial-gradient(circle at center, black 30%, transparent 85%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 85%)'
+          }}
+        />
       </div>
       
       <div className="max-w-5xl mx-auto text-center relative z-10">

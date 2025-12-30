@@ -107,19 +107,25 @@ export default function AllInOne() {
       className="py-32 px-4 overflow-hidden relative bg-black"
       id="growth-hub"
     >
-      {/* Cinematic Grid */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.05]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #333 1px, transparent 1px),
-            linear-gradient(to bottom, #333 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px',
-          maskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)',
-          WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)'
-        }}
-      />
+      {/* Cinematic Grid & Background Glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Central Gold Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[radial-gradient(circle,rgba(216,170,69,0.15),transparent_70%)] opacity-100" />
+        
+        {/* Standard 80px Grid */}
+        <div 
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)
+            `,
+            backgroundSize: '80px 80px',
+            maskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 90%)'
+          }}
+        />
+      </div>
       
       <div className="max-w-7xl mx-auto text-center mb-24 relative z-10">
          <h2 className="text-6xl md:text-8xl font-serif italic text-white mb-8">Your All-in-One <br/> Platform</h2>
