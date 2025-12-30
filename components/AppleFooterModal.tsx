@@ -26,17 +26,17 @@ export default function AppleFooterModal({ isOpen, onClose, activeTab = 'terms' 
     if (!mounted || !modalRef.current) return;
 
     if (isOpen) {
-      // Apple-style subtle slide-up
-      gsap.set(modalRef.current, { y: 10, opacity: 0 });
+      // Apple-style subtle slide-up - more defined
+      gsap.set(modalRef.current, { y: 40, opacity: 0 });
       gsap.to(modalRef.current, {
         y: 0,
         opacity: 1,
-        duration: 0.4,
-        ease: 'power3.out'
+        duration: 0.5,
+        ease: 'power4.out'
       });
     } else {
       gsap.to(modalRef.current, {
-        y: 10,
+        y: 20,
         opacity: 0,
         duration: 0.3,
         ease: 'power3.in'
@@ -140,7 +140,7 @@ export default function AppleFooterModal({ isOpen, onClose, activeTab = 'terms' 
                   <h2 className="text-xl lg:text-2xl font-bold text-white font-serif">
                     {section.h2}
                   </h2>
-                  <p className="text-lg leading-relaxed text-gray-400 max-w-3xl mx-auto font-light">
+                  <p className="text-lg leading-relaxed text-gray-400 font-light">
                     {section.p}
                   </p>
                 </section>
@@ -151,7 +151,7 @@ export default function AppleFooterModal({ isOpen, onClose, activeTab = 'terms' 
           {/* Footer */}
           <div className="px-6 pb-6 pt-4 border-t border-white/10 bg-black/20 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
             <p className="text-sm text-gray-500">
-              Questions? <a href="mailto:support@mengmedia.com" className="text-gold hover:underline font-medium">Contact support</a>
+              Questions? <a href="mailto:alexandermenginquiries@gmail.com" className="text-gold hover:underline font-medium">Contact support</a>
             </p>
             
             <div className="flex items-center gap-3 w-full sm:w-auto justify-end">

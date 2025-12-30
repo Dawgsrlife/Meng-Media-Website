@@ -8,11 +8,11 @@ export default function Features() {
         <div className="text-center mb-24 relative">
            <h2 className="text-5xl md:text-7xl font-serif italic mb-4 relative z-0 text-white">we&apos;ve got your back</h2>
            <div className="absolute top-0 right-12 transform -translate-y-1/2 rotate-12 z-10 hover:scale-110 transition-transform duration-300">
-              <a href="https://bud.quest" target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
+              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
                  <div className="relative w-32 h-32 border border-gold/50 rounded-full overflow-hidden bg-black shadow-[0_0_20px_rgba(212,175,55,0.2)]">
-                    <Image src="/hero-1.png" alt="Support" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-300" />
+                    <Image src="/showcase/1.png" alt="Support" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 hover:opacity-100 transition-opacity">
-                       <span className="text-gold font-serif italic text-lg">Visit</span>
+                       <span className="text-gold font-serif italic text-lg">Book Call</span>
                     </div>
                  </div>
               </a>
@@ -34,7 +34,7 @@ export default function Features() {
                 <span className="font-sans font-normal text-3xl md:text-4xl block mt-2 text-gold">idea of your facility</span>
               </h3>
               <div className="relative h-80 border border-white/20 rounded-lg overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-500 shadow-2xl">
-                 <Image src="/hero-2.png" alt="Facility" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                 <Image src="/features/large.jpg" alt="Facility" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" />
               </div>
            </div>
            
@@ -53,7 +53,7 @@ export default function Features() {
               </div>
               
               <div className="relative w-48 h-48 border border-white/20 rounded-full overflow-hidden self-end md:self-center shadow-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-shadow">
-                 <Image src="/hero-3.png" alt="Love what you do" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                 <Image src="/features/small.jpg" alt="Love what you do" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" />
               </div>
            </div>
         </div>

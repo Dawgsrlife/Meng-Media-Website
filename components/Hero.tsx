@@ -38,11 +38,11 @@ export default function Hero() {
   };
 
   const heroItems = [
-    { id: 1, label: 'WEBSITE', image: '/hero-1.png' },
-    { id: 2, label: 'BOOKING & SALES', image: '/hero-2.png' },
-    { id: 3, label: 'PAYMENTS & POS', image: '/hero-3.png' },
-    { id: 4, label: 'MARKETING & CRM', image: '/hero-4.png' },
-    { id: 5, label: 'DATA & OPERATIONS', image: '/hero-5.png' },
+    { id: 1, label: 'WEBSITE', image: '/new-hero/hero-website.jpg' },
+    { id: 2, label: 'BOOKING & SALES', image: '/new-hero/hero-booking.jpg' },
+    { id: 3, label: 'PAYMENTS & POS', image: '/new-hero/hero-payments.jpg' },
+    { id: 4, label: 'MARKETING & CRM', image: '/new-hero/hero-marketing.jpg' },
+    { id: 5, label: 'DATA & OPERATIONS', image: '/new-hero/hero-data.jpg' },
   ];
 
   return (

@@ -41,7 +41,7 @@ export default function CTA() {
         
         <div ref={splashRef} className="relative mb-16">
            <div className="relative h-96 w-full border border-white/10 rounded-3xl overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-700 shadow-2xl">
-              <Image src="/hero-5.png" alt="Get Started" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+              <Image src="/cta/cta-splash.jpg" alt="Get Started" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               
               {/* Overlay Text */}
               <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/20 transition-colors cursor-pointer z-10">

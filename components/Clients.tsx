@@ -22,7 +22,7 @@ export default function Clients() {
           speed={4000}
           loop={true}
           slidesPerView="auto"
-          spaceBetween={80}
+          spaceBetween={40}
           className="client-swiper"
         >
           {clients.map((client, i) => (

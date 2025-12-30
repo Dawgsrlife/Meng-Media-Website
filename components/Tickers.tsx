@@ -43,13 +43,13 @@ export default function Tickers() {
 
   const items = [
     { type: 'text', content: 'MARKETING' },
-    { type: 'image', src: '/hero-1.png' },
+    { type: 'image', src: '/tickers/pexels-a2pro-3477642.jpg' },
     { type: 'text', content: 'STRATEGY' },
-    { type: 'image', src: '/hero-2.png' },
+    { type: 'image', src: '/tickers/pexels-borta-2790256-35403708.jpg' },
     { type: 'text', content: 'GROWTH' },
-    { type: 'image', src: '/hero-3.png' },
+    { type: 'image', src: '/tickers/pexels-edotommo99-3249760.jpg' },
      { type: 'text', content: 'SALES' },
-    { type: 'image', src: '/hero-4.png' },
+    { type: 'image', src: '/tickers/pexels-mati-3193846.jpg' },
   ];
 
   return (

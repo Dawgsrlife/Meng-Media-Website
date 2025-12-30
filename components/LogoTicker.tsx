@@ -18,22 +18,18 @@ export default function LogoTicker() {
     return () => ctx.revert();
   }, []);
 
-  // Placeholder logos (using text for now as requested, or generic shapes)
-  // In a real scenario, these would be actual client logo images.
-  const logos = Array(10).fill(null).map((_, i) => ({
-     id: i,
-     name: `Client ${i + 1}`
-  }));
+  // Ticker of CTA text
+  // Removed placeholder clients
 
   return (
     <section className="bg-black py-12 border-y border-white/10 overflow-hidden relative z-20">
       <div className="flex whitespace-nowrap" ref={tickerRef}>
-        {[...logos, ...logos, ...logos].map((logo, i) => (
-          <div key={i} className="flex items-center mx-6 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
-             {/* Replace with actual Image component when assets are available */}
-             <span className="text-2xl font-bold font-serif italic tracking-widest text-gray-400">
-                {logo.name}
+        {[...Array(20)].map((_, i) => (
+          <div key={i} className="flex items-center mx-8 group cursor-pointer">
+             <span className="text-3xl md:text-4xl font-serif italic font-bold tracking-wide text-white/30 group-hover:text-gold transition-colors duration-300">
+                BECOME OUR NEXT CASE STUDY
              </span>
+             <span className="text-gold/30 ml-8 text-2xl group-hover:text-gold transition-colors duration-300">✦</span>
           </div>
         ))}
       </div>

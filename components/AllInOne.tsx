@@ -43,6 +43,16 @@ export default function AllInOne() {
       ref={containerRef} 
       className="py-32 px-4 overflow-hidden relative bg-black"
     >
+      {/* Pindot Grid Background with Fadeout */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
+        }}
+      />
       <div className="max-w-7xl mx-auto text-center mb-24 relative z-10">
          <h2 className="text-6xl md:text-8xl font-serif italic text-white mb-8">Your All-in-One <br/> Platform</h2>
          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light tracking-wide">
@@ -51,13 +61,19 @@ export default function AllInOne() {
       </div>
 
       <div className="relative h-[600px] max-w-5xl mx-auto flex items-center justify-center">
-         {/* Central Hub */}
-         <div className="absolute z-20 w-64 h-64 bg-black border border-gold/50 rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.2)]">
-            <span className="text-3xl font-serif italic font-bold text-white tracking-widest text-center">MENG<br/>MEDIA</span>
+         {/* Central Hub - Premium Glass Effect */}
+         <div className="absolute z-20 w-80 h-80 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-md border border-gold/30 shadow-[0_0_80px_rgba(212,175,55,0.15)] group hover:scale-105 transition-transform duration-700">
+            {/* Inner ring */}
+            <div className="absolute inset-4 rounded-full border border-white/5" />
+            
+            <div className="text-center">
+               <span className="block text-4xl md:text-5xl font-serif italic font-bold tracking-tight text-white drop-shadow-2xl mb-2">MENG</span>
+               <span className="block text-3xl md:text-4xl font-sans font-black tracking-[0.2em] text-gold-gradient uppercase">MEDIA</span>
+            </div>
          </div>
 
          {/* Floating Cards */}
-         {[1, 2, 3, 4, 5].map((num, i) => {
+         {['pexels-cottonbro-5083413.jpg', 'pexels-dantemunozphoto-15481505.jpg', 'pexels-harold-vasquez-853421-2653362.jpg', 'pexels-leeloothefirst-5556318.jpg', 'pexels-obi-onyeador-1787470-13566767.jpg'].map((imgName, i) => {
             // Initial positions in a circle
             const angle = (i / 5) * Math.PI * 2;
             const radius = 250;
@@ -74,7 +90,7 @@ export default function AllInOne() {
                      zIndex: 10
                   }}
                >
-                  <Image src={`/hero-${num}.png`} alt="Feature" fill className="object-cover opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
+                   <Image src={`/all-in-one/${imgName}`} alt="Feature" fill className="object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" />
                </div>
             );
          })}
